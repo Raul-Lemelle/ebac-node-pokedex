@@ -1,6 +1,8 @@
 const express = require('express');
+const createrError = require('http-errors');
 const path = require('path');
 const expressLayouts = require('express-ejs-layouts');
+
 const { connect } = require('./models');
 
 const pokemonRouter = require('./routes/pokemons');
@@ -23,6 +25,20 @@ app.use('/batalha', batalhaRouter);
 
 // declarando rotas api
 app.use('/api', capturaRouter);
+
+// sem match das rotas acima
+app.use((_req, _res, next) => {
+    next(createrError(404));
+});
+
+// tratando o erro genérico
+app.use((err, _req, res, _next) => {
+    res.status(err.status || 500);
+    res.render('paginas/erro', {
+        mensagem: err.message,
+        erro: err,
+    })
+});
 
 // porta
 const porta = 3000;
