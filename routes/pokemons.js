@@ -4,9 +4,9 @@ const { Pokemon } = require('../models')
 
 const router = express.Router();
 
-router.get('/', (res) => {
+router.get('/', (_req, res) => {
     Pokemon.find().then(pokemons => {
-        res.prependListener('paginas/pokemons/index', {
+        res.render('paginas/pokemons/index', {
             pokemons,
         });
     });
