@@ -5,6 +5,7 @@ const { connect } = require('./models');
 
 const pokemonRouter = require('./routes/pokemons');
 const batalhaRouter = require('./routes/batalha');
+const capturaRouter = require('./routes/api/captura');
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // declarando rotas
 app.use('/pokemons', pokemonRouter);
 app.use('/batalha', batalhaRouter);
+
+// declarando rotas api
+app.use('/api', capturaRouter);
 
 // porta
 const porta = 3000;
