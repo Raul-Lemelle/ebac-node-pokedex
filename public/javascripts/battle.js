@@ -57,3 +57,13 @@ document.addEventListener('click', function (event) {
   doCaptureAnimation();
   makeCaptureRequest();
 }, false);
+
+document.addEventListener('DOMContentLoaded', function() {
+  var fugirButton = document.getElementById('fugirButton');
+  if (fugirButton) {
+      fugirButton.addEventListener('click', function(event) {
+          event.preventDefault(); // Previne o comportamento padrão do link
+          location.reload(); // Recarrega a página
+      });
+  }
+});
