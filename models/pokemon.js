@@ -14,6 +14,10 @@ const Pokemon = new Schema({
         required: true,
         min: 0,
     },
+    peso: {
+        type: Number,
+        required: true,
+    },
     imagem: {
         type: String,
         required: true,
