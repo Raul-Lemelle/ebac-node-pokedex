@@ -36,8 +36,7 @@ const pokemonsFavoritos = [
             speed: 90
         }
     },
-    // Adicione os outros 8 pokémons favoritos aqui
-    {
+        {
         id: 1,
         nome: 'bulbasaur',
         altura: 7,
