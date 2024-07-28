@@ -9,7 +9,7 @@ const { connect } = require('./models');
 
 const pokemonRouter = require('./routes/pokemons');
 const batalhaRouter = require('./routes/batalha');
-const capturaRouter = require('./routes/api/captura');
+const apiRouter = require('./routes/api');
 const homeRouter = require('./routes/home');
 
 const app = express();
@@ -28,7 +28,7 @@ app.use('/batalha', batalhaRouter);
 app.use('/', homeRouter);
 
 // declarando rotas api
-app.use('/api', capturaRouter);
+app.use('/api', apiRouter);
 
 // sem match das rotas acima
 app.use((_req, _res, next) => {
